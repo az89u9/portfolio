@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azharul Islam | Social Media Marketer & SEO Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --accent: #ff0080;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Mesh */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(79, 172, 254, 0.1), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(255, 0, 128, 0.1), transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(0, 242, 254, 0.05), transparent 25%);
+            animation: pulseBg 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: var(--glass-border);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo span {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.2s;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 400;
+            font-family: 'Outfit', sans-serif;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        /* Glowing Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+        .orb-1 { width: 300px; height: 300px; background: var(--primary); top: 10%; right: -5%; }
+        .orb-2 { width: 200px; height: 200px; background: var(--accent); bottom: 10%; left: -5%; animation-delay: -5s; }
+
+        /* Sections General */
+        section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            display: inline-block;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Glass Cards (Shared) */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .experience-card h4 {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .achievements li {
+            list-style: none;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            text-align: center;
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.3));
+            transition: var(--transition);
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .skill-card h3 {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Stats */
+        .stats {
+            background: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05));
+            z-index: -1;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-text {
+            color: var(--primary);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-card, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--text-gray);
+            transition: var(--transition);
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .form-group input:focus ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:valid ~ label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background: var(--bg-dark);
+            padding: 0 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 70px 0 30px;
+            background: #0b1120;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.7;
+            animation: floatRandom 15s infinite ease-in-out;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 5%;
+            font-size: 1.5rem;
+            color: var(--primary);
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            font-size: 1.2rem;
+            color: var(--accent);
+            animation-delay: -5s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            animation-delay: -10s;
+        }
+
+        @keyframes floatRandom {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            50% { transform: translate(-5px, -10px) rotate(-3deg); }
+            75% { transform: translate(15px, 5px) rotate(2deg); }
+        }
+
+        /* Mobile */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero-content { text-align: center; margin: 0 auto; }
+            .experience-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 3rem; }
+            .contact-container { flex-direction: column; }
+            .experience-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element"><i class="fab fa-pinterest"></i></div>
+    <div class="floating-element"><i class="fas fa-chart-line"></i></div>
+    <div class="floating-element"><i class="fas fa-hashtag"></i></div>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Azharul <span>Islam</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Azharul Islam</h1>
+                <h2>I am a <span class="typing-text"></span></h2>
+                <p>Driving explosive growth through strategic social media marketing and SEO optimization. I specialize in transforming Pinterest accounts into high-traffic revenue streams while building engaged communities across platforms.</p>
+                <a href="#contact" class="btn">Amplify Your Reach</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="glass-card">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Social Media Growth Architect</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">I'm a social media strategist with a proven track record of driving exponential growth. My approach combines data-driven insights with creative content strategies to build engaged communities and skyrocket traffic. I don't just manage accounts—I build digital ecosystems that convert.</p>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+                        <span style="border: 1px solid var(--primary); padding: 8px 20px; border-radius: 20px; color: var(--primary);">Pinterest Expert</span>
+                        <span style="border: 1px solid var(--accent); padding: 8px 20px; border-radius: 20px; color: var(--accent);">Social Media Strategist</span>
+                        <span style="border: 1px solid var(--secondary); padding: 8px 20px; border-radius: 20px; color: var(--secondary);">SEO Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="glass-card experience-card js-tilt">
+                    <h3>SEO & Social Media Manager</h3>
+                    <h4>BrandViser | April 2025 - Present</h4>
+                    <ul class="achievements">
+                        <li>Developed integrated SEO and social media strategies for diverse client portfolios</li>
+                        <li>Increased organic reach by 65% through content optimization and platform-specific tactics</li>
+                        <li>Managed cross-platform campaigns driving engagement and conversion across social channels</li>
+                        <li>Implemented data-driven social media funnels that improved lead generation by 40%</li>
+                    </ul>
+                </div>
+                <div class="glass-card experience-card js-tilt">
+                    <h3>Pinterest Manager</h3>
+                    <h4>Startrsp | March 2025 - August 2025</h4>
+                    <ul class="achievements">
+                        <li>Transformed Pinterest strategy for Startrsp, increasing traffic by 37x in 6 months</li>
+                        <li>Increased monthly views from 200k to more than 7 million monthly views</li>
+                        <li>Optimized profile and board structure resulting in 300% increase in click-through rate</li>
+                        <li>Developed comprehensive content strategy that improved engagement metrics</li>
+                    </ul>
+                </div>
+                <div class="glass-card experience-card js-tilt">
+                    <h3>Pinterest Manager</h3>
+                    <h4>Mieclass Dresses | January 2025 - June 2025</h4>
+                    <ul class="achievements">
+                        <li>Increased monthly views by 30x times from 70k to over 2 million monthly views in 6 months</li>
+                        <li>Developed and implemented comprehensive Pinterest growth strategy</li>
+                        <li>Optimized content strategy to maximize reach and engagement</li>
+                        <li>Improved overall Pinterest presence and brand visibility</li>
+                    </ul>
+                </div>
+                <div class="glass-card experience-card js-tilt">
+                    <h3>Digital Marketing Intern</h3>
+                    <h4>Digitomark | June 2024 - November 2024</h4>
+                    <ul class="achievements">
+                        <li>Supported social media campaign execution across multiple platforms</li>
+                        <li>Assisted in content creation for Pinterest, Instagram, and Facebook campaigns</li>
+                        <li>Learned platform-specific best practices and analytics interpretation</li>
+                        <li>Contributed to social media strategy development for client accounts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Competencies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="glass-card skill-card js-tilt">
+                    <i class="fab fa-pinterest"></i>
+                    <h3>Pinterest Marketing</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">Pin strategy, Board optimization, Rich Pins, Analytics, Traffic generation.</p>
+                </div>
+                <div class="glass-card skill-card js-tilt">
+                    <i class="fas fa-hashtag"></i>
+                    <h3>Social Media Strategy</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">Content planning, Community management, Platform algorithms, Engagement growth.</p>
+                </div>
+                <div class="glass-card skill-card js-tilt">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Analytics & Reporting</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">Performance tracking, ROI analysis, Social insights, Growth metrics.</p>
+                </div>
+                <div class="glass-card skill-card js-tilt">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>SEO Integration</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">Keyword research, Content optimization, Social SEO, Cross-platform strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Collaborate</h2>
+            </div>
+            <div class="contact-container">
+                <div class="glass-card contact-info-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: white;">Ready to grow?</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 30px;">I'm currently taking on new social media projects. Let's discuss how we can transform your Pinterest and social media presence into a traffic-generating machine.</p>
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-envelope" style="color: var(--primary); margin-right: 10px;"></i>
+                        <span>azharul.cu32@gmail.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone" style="color: var(--primary); margin-right: 10px;"></i>
+                        <span>+880 1634572037</span>
+                    </div>
+                </div>
+                <div class="glass-card contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/xnnkldbn" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 style="font-family: 'Playfair Display'; font-size: 1.5rem;">Azharul Islam</h3>
+                    <p style="color: #64748b; font-size: 0.9rem;">Social Media Marketer & SEO Specialist</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Azharul Islam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particle.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize Particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00f2fe" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#4facfe",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Typing Effect
+        const textElement = document.querySelector('.typing-text');
+        const texts = ['Digital Marketer', 'SEO Strategist', 'Social Media Marketer', 'Pinterest Specialist'];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            
+            textElement.textContent = letter;
+            
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Wait before deleting
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        }());
+
+        // 3D Tilt Effect for Cards (Enhanced Vanilla JS implementation)
+        const tiltCards = document.querySelectorAll('.js-tilt');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                
+                // Add glow effect on hover
+                card.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.4), 
+                                        ${rotateY}px ${rotateX}px 30px rgba(0, 242, 254, 0.2)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale(1)`;
+                card.style.boxShadow = `0 10px 30px rgba(0, 0, 0, 0.08)`;
+            });
+        });
+
+        // Navigation & Scroll
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const header = document.getElementById('header');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add fade-in animation for other elements
+                    if (entry.target.classList.contains('glass-card')) {
+                        entry.target.style.animation = 'fadeInUp 0.8s forwards';
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe all relevant elements
+        document.querySelectorAll('.glass-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission with animation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add a success animation
+            const btn = this.querySelector('.btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            btn.style.background = 'var(--accent)';
+            btn.style.borderColor = 'var(--accent)';
+            
+            // Submit the form data
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Success message
+                    console.log('Message sent successfully!');
+                } else {
+                    // Error message
+                    console.log('Error sending message');
+                }
+            }).catch(error => {
+                console.log('Error:', error);
+            });
+            
+            setTimeout(() => {
+                this.reset();
+                btn.innerHTML = 'Send Message';
+                btn.style.background = 'transparent';
+                btn.style.borderColor = 'var(--primary)';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
